@@ -1,0 +1,3 @@
+4a. I have worked with azure data storage blobs which can be mounted as nfs type mounts on any machine. I would use something similar to that for storing the data
+As for the access, I am uncertain what is the access exactly referring to in this case
+4b. Using multiple cpus during data loader stage can be used to speed up the data resampling.

@@ -1,0 +1,2 @@
+The data folder is already included with the github repository. It is taken from Kaggle repo at https://www.kaggle.com/datasets/ciplab/real-and-fake-face-detection
+Question03 has the model part. You can run test.py and that should be able to show test accuracy and generate labels for the given dataset

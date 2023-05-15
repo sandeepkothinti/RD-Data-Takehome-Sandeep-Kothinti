@@ -1,0 +1,16 @@
+2a. The high accuracy while desirable can be misleading when looked at as a whole. For example, the detector could
+be very sensitive to detect most of fake images, but can be too sensitive for small defects in images.
+Alternatively the model can be highly selective to accurately classify for real images, but fail at fake images.
+
+2b. The accuracy is rate of correct classification across real, fake images. This assumes that the operating point for the binary classifier is chosen. 
+Since this is a binary hyopthesis test scenario, the more appropriate analysis would be to use something like
+ROC curves, area under ROC and best F-scores. I explained each of these below
+- ROC analysis looks at false alarms, hit rates, where false alarm looks at what fraction of real images were labeled as
+  fake images. Hit rates correspond to correctly detecting the fake images. Since the threshold on the binary classifier can 
+  change these values, we can sweep from 0 to 1 to get multiple operating points, which when plotted give us the ROC curves.
+  The best operating point can be chosen based on appropriate type-I error or the desired false alarm rate
+- AUROC is a summary statistic that can be quite useful in comparing multiple models based on ROC analysis
+- F-score is a single score in range [0,1], which looks at precision and recall to balance them as a harmonic mean
+
+When the validation sets are highly unbalanced, alternative measures such as beta-F-scores, mean average precision scores can be better
+alternatives to ROC analysis.

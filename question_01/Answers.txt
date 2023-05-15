@@ -1,0 +1,23 @@
+1a. Considerations that went into deciding what data to collect
+    - For this task, the dataset should have images with faces. One underlying assumption 
+      I made was that there is a face detector that can crop face of a single person during 
+      inference. This simplifies the data collection to focus on faces of a single individual
+      and not multiple people in the same image.
+    - The dataset should have a uniform coverage of real and fake images. This would mean about equal
+      percentage of real and fake images. While there are methods exist to deal with data imbalances, 
+      it is best to aim for uniform coverage. 
+    - For the real images, we can consider additional labels in order to avoid biases in the dataset. 
+      Some of the labels, I aimed to cover were gender, age group, race and face orientation. If the task 
+      deals with closed set fake face detection, one could aim to have uniform coverage of indivual identities
+    - In addtion to the above factors, the fake images should have uniform converage in terms of the manipulation
+      used for fake face creation. This can imply uniform sampling of the generator model if the fake images were 
+      generated from a model such as a GAN. If the manipulations were done by an expert, the uniform coverage of types
+      of manipulations are required.
+
+1b. With above consideration in mind, I did some research on Kaggle datasets for fake face detection. Several datasets used both generative models and manual manipulations to create the datasets. Unfortunately the large datasets had minimal metadata for the faces which made it difficult for me to develop a systematic method to sample data from them. Looking at medium sized datasets, I came across a dataset by Computational Intelligence and Photography Lab(ciplab). Which had about 1000 real and fake face images. Scanning the dataset, I observed almost a uniform converage of the factors i explained before. The fake images had the binary mask information about the parts of the face that were manipulated and the level of difficulty in id'ing the fake images by the annotators. I randomly sampled 180 images from the real dataset. For the fake dataset, i uniformly sampled from the difficulty rating(3 levels) and the binary masks(15 types) with 4 images for each combination. 
+
+1c. As mentioned before, the uniform coverage of latent variables such as age, gender, facial orientation, identity, emotion and race would be ideal for a most general fake face detection algorithm. In addition, the types of manipulation is also quite critical as we not only want a uniform coverage of the latent variables, but also how the fake images are created. 
+To sample from such a multivariate uniform distribution, we can form all permutations and get few representative samples for each combination. Such an effort may be impossible when the latent variables become too large (for example all celebrities in the world would be too big a factor). But when possible, permutation based sampling is the best method to use.
+
+1d. I created a csv file with filepath, real/fake label and the manipulation labels when applicable for the whole dataset first. I used pandas to sample from this dataset to create a training set of 360 images, a validation set of 90 images, a test set of 90 images. I sampled the fake dataset to get uniform coverage by using a combination of pandas dataframe and simple random sampling. 
+
