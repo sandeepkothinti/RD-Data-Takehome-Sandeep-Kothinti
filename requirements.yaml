@@ -15,6 +15,7 @@ dependencies:
   - future=0.18.3=py38hecd8cb5_0
   - giflib=5.2.1=h6c40b1e_3
   - idna=3.4=py38hecd8cb5_0
+  - joblib=1.1.1=py38hecd8cb5_0
   - jpeg=9e=h6c40b1e_1
   - lcms2=2.12=hf1fd2bf_0
   - lerc=3.0=he9d5cce_0
@@ -55,11 +56,15 @@ dependencies:
   - pyyaml=6.0=py38h6c40b1e_1
   - readline=7.0=h1de35cc_5
   - requests=2.29.0=py38hecd8cb5_0
+  - scikit-learn=1.2.2=py38hcec6c5f_0
   - scipy=1.10.1=py38h9034365_1
   - setuptools=66.0.0=py38hecd8cb5_0
   - six=1.16.0=pyhd3eb1b0_1
   - sqlite=3.33.0=hffcf06c_0
+  - threadpoolctl=2.2.0=pyh0d69192_0
   - tk=8.6.12=h5d9f67b_0
+  - torchvision=0.13.1=cpu_py38hc47236b_0
+  - tqdm=4.65.0=py38h01d92e1_0
   - typing-extensions=4.5.0=py38hecd8cb5_0
   - typing_extensions=4.5.0=py38hecd8cb5_0
   - urllib3=1.26.15=py38hecd8cb5_0
